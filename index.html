@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alexandr Lubeshko | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --bg-dark: #07080A;
             --accent: #7231FF;
             --text-main: #FFFFFF;
             --text-secondary: #D0D0D0;
-            --decor-color: #8A8A8A;
+            --decor-color: #3A3A3A;
         }
         
         * {
@@ -33,15 +34,6 @@
             font-weight: 500;
         }
         
-        /* Декоративные элементы */
-        .decor-element {
-            position: absolute;
-            color: var(--decor-color);
-            font-size: 24px;
-            z-index: -1;
-            opacity: 0.3;
-        }
-        
         /* Шапка */
         header {
             display: flex;
@@ -53,6 +45,7 @@
             top: 0;
             z-index: 1000;
             background-color: rgba(7, 8, 10, 0.9);
+            transition: all 0.3s ease;
         }
         
         .logo {
@@ -121,11 +114,19 @@
             line-height: 1.1;
         }
         
+        .hero h1 span {
+            color: var(--accent);
+        }
+        
         .hero h2 {
             font-size: 32px;
             margin-bottom: 20px;
             font-weight: 500;
             color: var(--text-main);
+        }
+        
+        .hero h2 span {
+            color: var(--accent);
         }
         
         .hero p {
@@ -139,7 +140,7 @@
         
         .hero-img {
             width: 40%;
-            border-radius: 20px;
+            border-radius: 8px;
             background: #1a1c22;
             height: 500px;
             display: flex;
@@ -156,7 +157,9 @@
         }
         
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             padding: 16px 40px;
             background-color: var(--accent);
             color: white;
@@ -165,7 +168,7 @@
             font-family: 'Unbounded', sans-serif;
             font-weight: 500;
             font-size: 16px;
-            transition: all 0.3s ease;
+            transition: all 0.5s ease;
             border: none;
             cursor: pointer;
             position: relative;
@@ -180,9 +183,8 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            transition: all 0.5s ease;
-            z-index: -1;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.6s ease;
         }
         
         .btn:hover::before {
@@ -190,7 +192,9 @@
         }
         
         .btn-outline {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             padding: 16px 40px;
             background-color: transparent;
             color: var(--accent);
@@ -200,7 +204,7 @@
             font-family: 'Unbounded', sans-serif;
             font-weight: 500;
             font-size: 16px;
-            transition: all 0.3s ease;
+            transition: all 0.5s ease;
             position: relative;
             overflow: hidden;
         }
@@ -208,12 +212,14 @@
         .btn-outline::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
             height: 0;
             background: var(--accent);
-            transition: all 0.5s ease;
+            border-radius: 50%;
+            transition: all 0.6s ease;
             z-index: -1;
         }
         
@@ -222,7 +228,8 @@
         }
         
         .btn-outline:hover::before {
-            height: 100%;
+            width: 300px;
+            height: 300px;
         }
         
         /* Секция проектов */
@@ -257,6 +264,14 @@
             overflow: hidden;
             margin-bottom: 100px;
             border: 1px solid rgba(255,255,255,0.05);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .project-card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .project-header {
@@ -326,6 +341,43 @@
             margin-right: 10px;
         }
         
+        .project-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 36px;
+            background-color: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+            border-radius: 4px;
+            text-decoration: none;
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: all 0.6s ease;
+        }
+        
+        .project-btn:hover::before {
+            left: 100%;
+        }
+        
+        .project-btn:hover {
+            background-color: rgba(114, 49, 255, 0.1);
+        }
+        
         /* Секция контактов */
         .contact {
             padding: 150px 5%;
@@ -344,6 +396,7 @@
             justify-content: center;
             gap: 50px;
             margin-top: 50px;
+            flex-wrap: wrap;
         }
         
         .contact-item {
@@ -353,14 +406,27 @@
         }
         
         .contact-icon {
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             background: rgba(114, 49, 255, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 20px;
+            font-size: 32px;
+            color: var(--accent);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .contact-icon:hover {
+            background: rgba(114, 49, 255, 0.2);
+            transform: translateY(-5px);
         }
         
         .contact-item h4 {
@@ -372,6 +438,14 @@
         .contact-item p {
             color: var(--text-secondary);
             font-size: 18px;
+        }
+        
+        .custom-icon {
+            width: 60px;
+            height: 60px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
         }
         
         /* Анимации */
@@ -393,14 +467,6 @@
                 transform: translateY(0);
                 opacity: 1;
             }
-        }
-        
-        .animate {
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-        
-        .animate-up {
-            animation: slideUp 0.8s ease-out forwards;
         }
         
         /* Адаптивность */
@@ -442,6 +508,7 @@
             
             .project-image {
                 height: 300px;
+                order: -1;
             }
         }
         
@@ -478,6 +545,10 @@
             .nav-links {
                 gap: 20px;
             }
+            
+            .btn-container {
+                justify-content: center;
+            }
         }
         
         @media (max-width: 576px) {
@@ -497,13 +568,6 @@
     </style>
 </head>
 <body>
-    <!-- Декоративные элементы -->
-    <div class="decor-element" style="top: 15%; left: 10%;">*</div>
-    <div class="decor-element" style="top: 25%; right: 15%;">/</div>
-    <div class="decor-element" style="top: 45%; left: 5%;">&lt;</div>
-    <div class="decor-element" style="top: 60%; right: 8%;">&gt;</div>
-    <div class="decor-element" style="top: 75%; left: 12%;">*</div>
-    
     <!-- Шапка сайта -->
     <header>
         <a href="#" class="logo">Alexandr Lubeshko<span>.</span></a>
@@ -517,8 +581,8 @@
     <!-- Главная секция -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Привет!</h1>
-            <h2>Меня зовут Александр.</h2>
+            <h1>Привет<span>!</span></h1>
+            <h2>Меня зовут Александр<span>.</span></h2>
             <p>Я веб-дизайнер и занимаюсь разработкой сайтов, логотипов, айдентики и фирменного стиля для крупных компаний.</p>
             <p>Постоянно изучаю что-то новое и совершенствую свои навыки, надеюсь мы сможем создать с вами привлекающий сайт.</p>
             <div class="btn-container">
@@ -537,7 +601,7 @@
         <h2 class="section-title">Мои работы</h2>
         
         <!-- Проект 1: ЭКО-Отель -->
-        <div class="project-card animate-up">
+        <div class="project-card">
             <div class="project-header">
                 <h3>ЭКО-Отель</h3>
                 <p>Домики в лесу</p>
@@ -562,13 +626,13 @@
                         <li>Система управления контентом для владельца</li>
                     </ul>
                     
-                    <a href="#" class="btn">Подробнее о проекте</a>
+                    <a href="#" class="project-btn">Подробнее о проекте</a>
                 </div>
             </div>
         </div>
         
         <!-- Проект 2: MoneyHub -->
-        <div class="project-card animate-up">
+        <div class="project-card">
             <div class="project-header">
                 <h3>MoneyHub</h3>
                 <p>Банковское приложение</p>
@@ -593,7 +657,38 @@
                         <li>Повышенная безопасность и шифрование</li>
                     </ul>
                     
-                    <a href="#" class="btn">Подробнее о проекте</a>
+                    <a href="#" class="project-btn">Подробнее о проекте</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Проект 3: TravelAgency -->
+        <div class="project-card">
+            <div class="project-header">
+                <h3>TravelAgency</h3>
+                <p>Горящие туры по всей планете</p>
+            </div>
+            
+            <div class="project-content">
+                <div class="project-image">
+                    <!-- Замените на изображение проекта -->
+                    <div style="color: var(--text-secondary); font-style: italic;">[Изображение проекта 3]</div>
+                </div>
+                
+                <div class="project-info">
+                    <h4>Получи удовольствие от путешествий!</h4>
+                    <p>Платформа для поиска и бронирования горящих туров по всему миру. Самые выгодные предложения от проверенных туроператоров.</p>
+                    
+                    <p>Особенности проекта:</p>
+                    <ul>
+                        <li>Умный поиск туров по множеству параметров</li>
+                        <li>Система мгновенного бронирования</li>
+                        <li>Отзывы и рейтинги отелей и туроператоров</li>
+                        <li>Интеграция с платежными системами</li>
+                        <li>Мобильное приложение для iOS и Android</li>
+                    </ul>
+                    
+                    <a href="#" class="project-btn">Подробнее о проекте</a>
                 </div>
             </div>
         </div>
@@ -609,21 +704,41 @@
             
             <div class="contact-info">
                 <div class="contact-item">
-                    <div class="contact-icon">@</div>
-                    <h4>Email</h4>
-                    <p>alex@lubeshko.design</p>
+                    <a href="mailto:alex@lubeshko.design">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email</h4>
+                        <p>alex@lubeshko.design</p>
+                    </a>
                 </div>
                 
                 <div class="contact-item">
-                    <div class="contact-icon">T</div>
-                    <h4>Telegram</h4>
-                    <p>@alex_lubeshko</p>
+                    <a href="https://t.me/alex_lubeshko" target="_blank">
+                        <div class="contact-icon">
+                            <i class="fab fa-telegram"></i>
+                        </div>
+                        <h4>Telegram</h4>
+                        <p>@alex_lubeshko</p>
+                    </a>
                 </div>
                 
                 <div class="contact-item">
-                    <div class="contact-icon">B</div>
-                    <h4>Behance</h4>
-                    <p>behance.net/alubeshko</p>
+                    <a href="https://www.behance.net/alubeshko" target="_blank">
+                        <div class="contact-icon">
+                            <i class="fab fa-behance"></i>
+                        </div>
+                        <h4>Behance</h4>
+                        <p>behance.net/alubeshko</p>
+                    </a>
+                </div>
+                
+                <div class="contact-item">
+                    <a href="https://kwork.ru/user/alubeshko" target="_blank">
+                        <div class="contact-icon custom-icon" style="background-image: url('images/kwork-icon.png');"></div>
+                        <h4>Kwork</h4>
+                        <p>kwork.ru/alubeshko</p>
+                    </a>
                 </div>
             </div>
         </div>
@@ -646,17 +761,18 @@
         });
         
         // Анимация при скролле
+        const projectCards = document.querySelectorAll('.project-card');
+        
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
+                    entry.target.classList.add('visible');
                 }
             });
         }, { threshold: 0.1 });
         
-        // Применяем анимацию к элементам
-        document.querySelectorAll('.animate, .animate-up').forEach(el => {
-            observer.observe(el);
+        projectCards.forEach(card => {
+            observer.observe(card);
         });
         
         // Фиксация шапки при скролле
@@ -664,10 +780,35 @@
             const header = document.querySelector('header');
             if (window.scrollY > 50) {
                 header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
+                header.style.background = 'rgba(7, 8, 10, 0.95)';
             } else {
                 header.style.boxShadow = 'none';
+                header.style.background = 'rgba(7, 8, 10, 0.9)';
             }
         });
+        
+        // Инициализация анимаций при загрузке
+        window.addEventListener('load', () => {
+            // Анимация для герой-секции
+            document.querySelector('.hero-content').style.opacity = '1';
+            document.querySelector('.hero-content').style.transform = 'translateY(0)';
+            
+            // Анимация для проектов при скролле
+            projectCards.forEach(card => {
+                if (isInViewport(card)) {
+                    card.classList.add('visible');
+                }
+            });
+        });
+        
+        // Функция проверки видимости элемента
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.bottom >= 0
+            );
+        }
     </script>
 </body>
 </html>
