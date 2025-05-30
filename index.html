@@ -3,424 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Александр Либерсенко | Веб-дизайнер</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>Alexandr Lubeshko | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* Основные стили */
+        /* Базовые стили с вашими цветами */
+        :root {
+            --bg-dark: #07080A;
+            --accent: #7231FF;
+            --text-main: #FFFFFF;
+            --text-secondary: #D0D0D0;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Open Sans', sans-serif;
         }
         
         body {
-            background-color: #F8F5F0;
-            color: #2C3E2C;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
+            overflow-x: hidden;
         }
         
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        /* Шапка */
+        /* Стили для шапки */
         header {
-            padding: 25px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            background-color: rgba(248, 245, 240, 0.95);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(44, 62, 44, 0.1);
-        }
-        
-        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 25px 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(7, 8, 10, 0.9);
+            backdrop-filter: blur(10px);
         }
         
         .logo {
             font-size: 24px;
-            font-weight: 700;
-            color: #2A6D38;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 35px;
-        }
-        
-        nav a {
+            font-weight: 600;
+            color: var(--text-main);
             text-decoration: none;
-            color: #2C3E2C;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
             font-weight: 500;
             font-size: 18px;
             position: relative;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
         }
         
-        nav a:hover {
-            color: #2A6D38;
+        .nav-links a:hover {
+            color: var(--text-main);
+            transform: translateY(-2px);
         }
         
-        nav a::after {
+        .nav-links a::after {
             content: '';
             position: absolute;
             bottom: -5px;
             left: 0;
             width: 0;
             height: 2px;
-            background: #2A6D38;
-            transition: width 0.3s;
+            background: var(--accent);
+            transition: width 0.3s ease;
         }
         
-        nav a:hover::after {
+        .nav-links a:hover::after {
             width: 100%;
         }
         
-        /* Герой-секция */
+        /* Секция героя */
         .hero {
-            padding-top: 150px;
             min-height: 100vh;
             display: flex;
             align-items: center;
+            padding: 0 5%;
+            padding-top: 80px;
         }
         
         .hero-content {
-            max-width: 700px;
+            max-width: 600px;
         }
         
         .hero h1 {
             font-size: 64px;
-            line-height: 1.1;
             margin-bottom: 20px;
-            color: #2A6D38;
-            font-weight: 700;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        .hero h2 {
-            font-size: 32px;
-            margin-bottom: 35px;
-            font-weight: 400;
-            color: #2C3E2C;
+            line-height: 1.1;
         }
         
         .hero p {
             font-size: 20px;
-            margin-bottom: 25px;
-            color: #6D7C6D;
-            max-width: 650px;
-        }
-        
-        .highlight {
-            display: inline-block;
-            padding: 12px 25px;
-            background-color: #D8A448;
-            color: white;
-            border-radius: 6px;
-            font-weight: 600;
-            margin-top: 20px;
-            font-size: 18px;
-            transform: rotate(-2deg);
-            box-shadow: 0 4px 10px rgba(216, 164, 72, 0.3);
-        }
-        
-        /* Секция проектов */
-        .projects {
-            padding: 100px 0;
-            background-color: white;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 40px;
-            margin-bottom: 70px;
-            color: #2A6D38;
-            font-weight: 700;
-            position: relative;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: #D8A448;
-        }
-        
-        .project-card {
-            background-color: #F8F5F0;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            margin-bottom: 60px;
-        }
-        
-        .project-header {
-            background-color: #2A6D38;
-            color: white;
-            padding: 25px 40px;
-        }
-        
-        .project-header h3 {
-            font-size: 32px;
-            margin-bottom: 8px;
-            font-weight: 700;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        .project-header p {
-            font-size: 20px;
-            opacity: 0.9;
-        }
-        
-        .project-content {
-            padding: 40px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        
-        .project-image {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-            height: 400px;
-            background: linear-gradient(135deg, #e0e0e0 0%, #f0f0f0 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6D7C6D;
-            font-style: italic;
-            font-size: 18px;
-        }
-        
-        .project-info {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        .project-info h4 {
-            font-size: 28px;
-            color: #2A6D38;
-            margin-bottom: 25px;
-            font-weight: 700;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        .project-info p {
+            color: var(--text-secondary);
             margin-bottom: 30px;
-            line-height: 1.7;
-            font-size: 18px;
-            color: #2C3E2C;
+            max-width: 500px;
         }
         
-        .project-nav {
-            display: flex;
-            justify-content: space-between;
-            padding: 0 40px 40px;
-            font-size: 20px;
-            color: #2C3E2C;
-            align-items: center;
-        }
-        
-        .project-nav a {
-            color: #2A6D38;
-            text-decoration: none;
-            font-weight: 600;
+        .hero-img {
+            width: 40%;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            background: #1a1c22; /* Заглушка для фото */
+            height: 500px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            transition: all 0.3s;
-        }
-        
-        .project-nav a:hover {
-            color: #D8A448;
-            transform: translateX(-5px);
-        }
-        
-        .project-nav a.next:hover {
-            transform: translateX(5px);
-        }
-        
-        .project-nav .page-counter {
-            font-weight: 500;
-        }
-        
-        /* Адаптивность */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 48px;
-            }
-            
-            .hero h2 {
-                font-size: 28px;
-            }
-            
-            .project-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .project-image {
-                height: 300px;
-                order: -1;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hero {
-                padding-top: 120px;
-            }
-            
-            .hero h1 {
-                font-size: 40px;
-            }
-            
-            .hero h2 {
-                font-size: 24px;
-            }
-            
-            nav ul {
-                gap: 20px;
-                font-size: 16px;
-            }
-            
-            .section-title {
-                font-size: 32px;
-            }
-            
-            .project-header h3 {
-                font-size: 28px;
-            }
-            
-            .project-info h4 {
-                font-size: 24px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .hero h1 {
-                font-size: 32px;
-            }
-            
-            .project-header {
-                padding: 20px;
-            }
-            
-            .project-content {
-                padding: 30px;
-            }
-            
-            .project-nav {
-                flex-direction: column;
-                gap: 20px;
-                padding: 0 30px 30px;
-            }
+            justify-content: center;
+            color: var(--text-secondary);
+            font-style: italic;
         }
     </style>
 </head>
 <body>
-    <!-- Шапка -->
+    <!-- Шапка сайта -->
     <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">Александр Либерсенко</div>
-                <nav>
-                    <ul>
-                        <li><a href="#">Главная</a></li>
-                        <li><a href="#projects">Проекты</a></li>
-                        <li><a href="#contacts">Контакты</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
+        <a href="#" class="logo">Alexandr Lubeshko</a>
+        <ul class="nav-links">
+            <li><a href="#home">Главная</a></li>
+            <li><a href="#projects">Проекты</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
     </header>
 
-    <!-- Герой-секция -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Привет!</h1>
-                <h2>Меня зовут Александр.</h2>
-                <p>Я веб-дизайнер и занимаюсь разработкой сайтов, логотипов, айдентики и фирменного стиля для крупных компаний.</p>
-                <p>Постоянно изучаю что-то новое и совершенствую свои навыки, надеюсь мы сможем создать с вами привлекающий сайт.</p>
-                <div class="highlight">Я хороший дизайнер</div>
-            </div>
+    <!-- Главная секция -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Привет!</h1>
+            <h2>Меня зовут Александр.</h2>
+            <p>Я веб-дизайнер и занимаюсь разработкой сайтов, логотипов, айдентики и фирменного стиля для крупных компаний.</p>
+            <p>Постоянно изучаю что-то новое и совершенствую свои навыки, надеюсь мы сможем создать с вами привлекающий сайт.</p>
         </div>
+       <img src="assets/Group 1321316367.png" alt="Alexandr Lubeshko" class="hero-img">
     </section>
 
-    <!-- Проекты -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">WebFolio</h2>
-            
-            <div class="project-card">
-                <div class="project-header">
-                    <h3>ЭКО-Отель</h3>
-                    <p>Домики в Лесу</p>
-                </div>
-                
-                <div class="project-content">
-                    <div class="project-image">
-                        [Изображение проекта 1]
-                    </div>
-                    
-                    <div class="project-info">
-                        <h4>Это Экологический проект</h4>
-                        <p>Созданный для развития экотуризма в России. Большая площадка для привлечения туристов.</p>
-                        <p>Открывающая территориальность с целью поддержания движения экотуризма и сохранения природных ресурсов.</p>
-                    </div>
-                </div>
-                
-                <div class="project-content">
-                    <div class="project-info">
-                        <h4>Лавиан Гакусев О'Нас Бронь</h4>
-                        <p>ЭКО-Отель "Домики в лесу" - это уникальное место для тех, кто ценит природу и комфорт.</p>
-                        <p>Забелегатель - концепция экологического отдыха, сочетающая современные технологии и традиционные подходы к природопользованию.</p>
-                    </div>
-                    
-                    <div class="project-image">
-                        [Изображение проекта 2]
-                    </div>
-                </div>
-                
-                <div class="project-nav">
-                    <a href="#" class="prev">&larr; Назад</a>
-                    <div class="page-counter">1 / 2</div>
-                    <a href="#" class="next">Подробнее &rarr;</a>
-                </div>
-            </div>
-        </div>
+    <!-- Секция проектов -->
+    <section id="projects">
+        <!-- Здесь будут ваши проекты -->
     </section>
 
-    <!-- Контакты -->
-    <section id="contacts">
-        <div class="container">
-            <h2 class="section-title">Контакты</h2>
-            <!-- Здесь будет форма и контактная информация -->
-        </div>
+    <!-- Секция контактов -->
+    <section id="contact">
+        <!-- Контактная информация -->
     </section>
 
     <script>
-        // Плавная прокрутка
+        // Плавная прокрутка к якорям
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -434,20 +171,7 @@
                 }
             });
         });
-
-        // Фиксация шапки при скролле
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
-                header.style.background = 'rgba(248, 245, 240, 0.98)';
-                header.style.borderBottom = 'none';
-            } else {
-                header.style.boxShadow = 'none';
-                header.style.background = 'rgba(248, 245, 240, 0.95)';
-                header.style.borderBottom = '1px solid rgba(44, 62, 44, 0.1)';
-            }
-        });
     </script>
 </body>
 </html>
+ 
