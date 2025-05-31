@@ -226,7 +226,7 @@
             transform: none;
         }
         
-        /* Анимация для кнопки "Мои проекты" (возвращаем свечение) */
+        /* Анимация для кнопки "Мои проекты" */
         .btn::before {
             content: '';
             position: absolute;
@@ -356,10 +356,10 @@
         }
         
         .project-content {
-            padding: 40px; /* Уменьшенный отступ */
+            padding: 50px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px; /* Уменьшенный отступ */
+            gap: 50px;
             align-items: center;
         }
         
@@ -370,41 +370,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 412px; /* Точная высота для изображений проектов */
-            position: relative;
+            /* Новый размер для изображений 725x412 */
+            height: 412px; /* Фиксированная высота */
+            max-width: 725px; /* Максимальная ширина */
         }
         
         /* Стили для изображений проектов */
         .project-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Заполнение контейнера */
-            border-radius: 8px; /* Закругленные углы */
-            transition: all 0.3s ease;
-        }
-        
-        /* Свечение при наведении на изображение */
-        .project-image:hover img {
-            transform: scale(1.02);
-            box-shadow: 0 0 25px rgba(114, 49, 255, 0.6);
-        }
-        
-        .project-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(114, 49, 255, 0.1);
-            opacity: 0;
-            transition: all 0.3s ease;
-            z-index: 1;
-            border-radius: 8px;
-        }
-        
-        .project-image:hover::after {
-            opacity: 1;
+            object-fit: contain; /* Гарантирует полное отображение */
         }
         
         .project-info h4 {
@@ -543,7 +518,7 @@
             
             .project-content {
                 gap: 30px;
-                padding: 30px;
+                padding: 40px;
             }
             
             .contact-info {
@@ -605,7 +580,7 @@
             }
             
             .project-content {
-                padding: 20px;
+                padding: 30px;
             }
             
             .project-image {
@@ -786,9 +761,9 @@
             </div>
             
             <div class="project-content">
-                <a href="eco-hotel.html" class="project-image">
+                <div class="project-image">
                     <img src="assets/Homes.png" alt="ЭКО-Отель">
-                </a>
+                </div>
                 
                 <div class="project-info">
                     <h4>Охраняемая территория с великолепным видом</h4>
@@ -816,9 +791,9 @@
             </div>
             
             <div class="project-content">
-                <a href="moneyhub.html" class="project-image">
+                <div class="project-image">
                     <img src="assets/MoneyHub.png" alt="MoneyHub">
-                </a>
+                </div>
                 
                 <div class="project-info">
                     <h4>Лучшее решение для вашего бизнеса</h4>
@@ -846,9 +821,9 @@
             </div>
             
             <div class="project-content">
-                <a href="travel-agency.html" class="project-image">
+                <div class="project-image">
                     <img src="assets/travelagency.png" alt="TravelAgency">
-                </a>
+                </div>
                 
                 <div class="project-info">
                     <h4>Получи удовольствие от путешествий!</h4>
