@@ -28,6 +28,24 @@
             overflow-x: hidden;
         }
         
+        /* КАСТОМНЫЙ СКРОЛЛБАР */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #0c0d10;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5a1be0;
+        }
+        
         h1, h2, h3, h4 {
             font-family: 'Unbounded', sans-serif;
             font-weight: 500;
@@ -38,7 +56,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 5%; /* Уменьшенный padding */
+            padding: 20px 5%;
             position: fixed;
             width: 100%;
             top: 0;
@@ -48,7 +66,7 @@
         }
         
         .logo {
-            font-size: 20px; /* Уменьшенный размер */
+            font-size: 20px;
             font-weight: 600;
             color: var(--text-main);
             text-decoration: none;
@@ -62,7 +80,7 @@
         
         .nav-links {
             display: flex;
-            gap: 25px; /* Уменьшенный отступ */
+            gap: 25px;
             list-style: none;
         }
         
@@ -70,7 +88,7 @@
             color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
-            font-size: 16px; /* Уменьшенный размер */
+            font-size: 16px;
             position: relative;
             transition: all 0.3s ease;
             white-space: nowrap;
@@ -101,7 +119,7 @@
             display: flex;
             align-items: center;
             padding: 0 5%;
-            padding-top: 80px; /* Уменьшенный отступ сверху */
+            padding-top: 80px;
             position: relative;
         }
         
@@ -235,6 +253,11 @@
             left: 100%;
         }
         
+        /* Добавлено свечение для кнопки "Мои проекты" */
+        .btn:hover {
+            box-shadow: 0 0 20px rgba(114, 49, 255, 0.5);
+        }
+        
         /* Анимация для кнопки "Связаться" (ускоренная) */
         .btn-outline::before {
             content: '';
@@ -246,7 +269,7 @@
             height: 0;
             background: var(--accent);
             border-radius: 50%;
-            transition: all 0.4s ease; /* Ускоренная анимация */
+            transition: all 0.3s ease; /* Ускоренная анимация (0.3s вместо 0.4s) */
             z-index: -1;
         }
         
@@ -277,7 +300,7 @@
         }
         
         .project-btn:hover {
-            box-shadow: 0 0 20px rgba(114, 49, 255, 0.5); /* Свечение */
+            box-shadow: 0 0 20px rgba(114, 49, 255, 0.5);
         }
         
         /* Секция проектов */
@@ -405,7 +428,7 @@
         }
         
         .contact-container {
-            max-width: 1200px; /* Шире контейнер */
+            max-width: 1200px;
             margin: 0 auto;
             text-align: center;
         }
@@ -414,7 +437,7 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 40px; /* Увеличенное расстояние */
+            gap: 40px;
             margin-top: 50px;
         }
         
@@ -422,7 +445,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-width: 220px; /* Шире элементы */
+            min-width: 220px;
         }
         
         .contact-item a {
@@ -435,22 +458,21 @@
         }
         
         .contact-icon {
-            width: 90px; /* Немного больше */
-            height: 90px; /* Немного больше */
+            width: 90px;
+            height: 90px;
             background: rgba(114, 49, 255, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 20px;
-            font-size: 36px; /* Крупнее иконки */
+            font-size: 36px;
             color: var(--accent);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
         
-        /* Свечение для иконок */
         .contact-icon::before {
             content: '';
             position: absolute;
@@ -472,7 +494,7 @@
         
         .contact-icon:hover {
             transform: translateY(-5px);
-            box-shadow: 0 0 20px rgba(114, 49, 255, 0.4); /* Свечение */
+            box-shadow: 0 0 20px rgba(114, 49, 255, 0.4);
         }
         
         .contact-item h4 {
@@ -587,7 +609,6 @@
         }
         
         @media (max-width: 576px) {
-            /* Скрыть фото на мобильных */
             .hero-img {
                 display: none;
             }
@@ -716,7 +737,8 @@
             </div>
         </div>
         <div class="hero-img animate">
-            <!-- ВСТАВЬТЕ ВАШУ ФОТОГРАФИЮ -->
+            <!-- ВСТАВЬТЕ ВАШУ ФОТОГРАФИЮ ЗДЕСЬ -->
+            <!-- Рекомендуемый размер: 100% ширины контейнера (40% от экрана) и высота 500px -->
             <!-- <img src="images/your-photo.jpg" alt="Alexandr Lubeshko" style="width: 100%; height: 100%; object-fit: cover;"> -->
             <div style="color: var(--text-secondary); font-style: italic;">[Ваша фотография]</div>
         </div>
@@ -735,7 +757,8 @@
             
             <div class="project-content">
                 <div class="project-image">
-                    <!-- ВСТАВЬТЕ ИЗОБРАЖЕНИЕ ПРОЕКТА -->
+                    <!-- ВСТАВЬТЕ ИЗОБРАЖЕНИЕ ПРОЕКТА ЗДЕСЬ -->
+                    <!-- Рекомендуемый размер: 100% ширины контейнера и высота 400px -->
                     <!-- <img src="images/eco-hotel.jpg" alt="ЭКО-Отель" style="width: 100%; height: 100%; object-fit: cover;"> -->
                     <div style="color: var(--text-secondary); font-style: italic;">[Изображение проекта 1]</div>
                 </div>
@@ -767,7 +790,8 @@
             
             <div class="project-content">
                 <div class="project-image">
-                    <!-- ВСТАВЬТЕ ИЗОБРАЖЕНИЕ ПРОЕКТА -->
+                    <!-- ВСТАВЬТЕ ИЗОБРАЖЕНИЕ ПРОЕКТА ЗДЕСЬ -->
+                    <!-- Рекомендуемый размер: 100% ширины контейнера и высота 400px -->
                     <!-- <img src="images/moneyhub.jpg" alt="MoneyHub" style="width: 100%; height: 100%; object-fit: cover;"> -->
                     <div style="color: var(--text-secondary); font-style: italic;">[Изображение проекта 2]</div>
                 </div>
@@ -799,7 +823,8 @@
             
             <div class="project-content">
                 <div class="project-image">
-                    <!-- ВСТАВЬТЕ ИЗОБРАЖЕНИЕ ПРОЕКТА -->
+                    <!-- ВСТАВЬТЕ ИЗОБРАЖЕНИЕ ПРОЕКТА ЗДЕСЬ -->
+                    <!-- Рекомендуемый размер: 100% ширины контейнера и высота 400px -->
                     <!-- <img src="images/travel-agency.jpg" alt="TravelAgency" style="width: 100%; height: 100%; object-fit: cover;"> -->
                     <div style="color: var(--text-secondary); font-style: italic;">[Изображение проекта 3]</div>
                 </div>
@@ -878,7 +903,6 @@
     <script>
         // Анимация при загрузке страницы
         document.addEventListener('DOMContentLoaded', function() {
-            // Анимация для элементов герой-секции
             setTimeout(() => {
                 document.querySelector('.hero-content').classList.add('animate');
                 document.querySelector('.hero-img').classList.add('animate');
