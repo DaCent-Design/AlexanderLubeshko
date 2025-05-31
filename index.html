@@ -28,27 +28,27 @@
             overflow-x: hidden;
         }
         
-        /* Улучшенный кастомный скроллбар */
+        /* Улучшенный скроллбар с эффектом свечения */
         ::-webkit-scrollbar {
-            width: 10px;
+            width: 12px;
         }
         
         ::-webkit-scrollbar-track {
             background: #0c0d10;
-            border-radius: 5px;
+            border-radius: 10px;
         }
         
         ::-webkit-scrollbar-thumb {
             background: var(--accent);
-            border-radius: 5px;
-            border: 2px solid #0c0d10;
+            border-radius: 10px;
+            border: 3px solid #0c0d10;
             background-clip: padding-box;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
         }
         
         ::-webkit-scrollbar-thumb:hover {
             background: #8a5cff;
-            box-shadow: 0 0 5px rgba(114, 49, 255, 0.5);
+            box-shadow: 0 0 10px rgba(114, 49, 255, 0.7);
         }
         
         h1, h2, h3, h4 {
@@ -174,7 +174,7 @@
             width: 40%;
             border-radius: 8px;
             background: #1a1c22;
-            height: 500px;
+            height: 450px; /* Уменьшенная высота плашки */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -274,7 +274,7 @@
             height: 0;
             background: var(--accent);
             border-radius: 50%;
-            transition: all 0.3s ease; /* Ускоренная анимация (0.3s вместо 0.4s) */
+            transition: all 0.3s ease;
             z-index: -1;
         }
         
@@ -387,42 +387,42 @@
             border-radius: 8px;
             overflow: hidden;
             background: #14151a;
-            height: 412px; /* Фиксированная высота */
+            height: 412px; /* Точная высота */
+            width: 725px; /* Точная ширина */
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
+            margin: 0 auto;
         }
         
-        /* Свечение при наведении на изображение проекта */
+        /* Яркое свечение при наведении */
         .project-image img {
-            width: 725px; /* Точный размер */
-            height: 412px; /* Точный размер */
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
         }
         
         .project-image:hover img {
-            transform: scale(1.03);
-            box-shadow: 0 0 20px rgba(114, 49, 255, 0.6);
+            transform: scale(1.02);
         }
         
-        /* Эффект свечения */
         .project-image::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
+            width: 100%;
+            height: 100%;
             border-radius: 8px;
-            box-shadow: 0 0 15px rgba(114, 49, 255, 0);
-            transition: all 0.3s ease;
+            box-shadow: 0 0 0 rgba(114, 49, 255, 0);
+            transition: all 0.4s ease;
             z-index: -1;
         }
         
         .project-image:hover::after {
-            box-shadow: 0 0 25px rgba(114, 49, 255, 0.8);
+            box-shadow: 0 0 30px rgba(114, 49, 255, 0.7);
         }
         
         .project-info h4 {
@@ -564,6 +564,13 @@
             .contact-info {
                 gap: 30px;
             }
+            
+            /* Адаптация для проектов */
+            .project-image {
+                width: 100%;
+                height: auto;
+                max-height: 412px;
+            }
         }
         
         @media (max-width: 992px) {
@@ -580,7 +587,7 @@
             
             .hero-img {
                 width: 70%;
-                height: 500px; /* Сохраняем высоту для мобильных */
+                height: 400px;
             }
             
             .project-content {
@@ -591,12 +598,6 @@
                 height: auto;
                 max-height: 400px;
                 order: -1;
-            }
-            
-            .project-image img {
-                width: 100%;
-                height: auto;
-                max-height: 400px;
             }
             
             .btn-container {
@@ -781,7 +782,7 @@
             </div>
         </div>
         <div class="hero-img animate">
-            <!-- Ваша фотография с сохранением пропорций -->
+            <!-- Фото с сохранением пропорций -->
             <img src="assets/alexandr3.png" alt="Alexandr Lubeshko" style="width: 100%; height: 100%; object-fit: contain;">
         </div>
     </section>
