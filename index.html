@@ -28,22 +28,27 @@
             overflow-x: hidden;
         }
         
-        /* КАСТОМНЫЙ СКРОЛЛБАР */
+        /* Улучшенный кастомный скроллбар */
         ::-webkit-scrollbar {
             width: 10px;
         }
         
         ::-webkit-scrollbar-track {
             background: #0c0d10;
+            border-radius: 5px;
         }
         
         ::-webkit-scrollbar-thumb {
             background: var(--accent);
             border-radius: 5px;
+            border: 2px solid #0c0d10;
+            background-clip: padding-box;
+            transition: background 0.3s ease;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-            background: #5a1be0;
+            background: #8a5cff;
+            box-shadow: 0 0 5px rgba(114, 49, 255, 0.5);
         }
         
         h1, h2, h3, h4 {
@@ -382,10 +387,42 @@
             border-radius: 8px;
             overflow: hidden;
             background: #14151a;
-            height: 400px;
+            height: 412px; /* Фиксированная высота */
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+        }
+        
+        /* Свечение при наведении на изображение проекта */
+        .project-image img {
+            width: 725px; /* Точный размер */
+            height: 412px; /* Точный размер */
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+        
+        .project-image:hover img {
+            transform: scale(1.03);
+            box-shadow: 0 0 20px rgba(114, 49, 255, 0.6);
+        }
+        
+        /* Эффект свечения */
+        .project-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(114, 49, 255, 0);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+        
+        .project-image:hover::after {
+            box-shadow: 0 0 25px rgba(114, 49, 255, 0.8);
         }
         
         .project-info h4 {
@@ -543,7 +580,7 @@
             
             .hero-img {
                 width: 70%;
-                height: 400px;
+                height: 500px; /* Сохраняем высоту для мобильных */
             }
             
             .project-content {
@@ -551,8 +588,15 @@
             }
             
             .project-image {
-                height: 300px;
+                height: auto;
+                max-height: 400px;
                 order: -1;
+            }
+            
+            .project-image img {
+                width: 100%;
+                height: auto;
+                max-height: 400px;
             }
             
             .btn-container {
@@ -737,10 +781,8 @@
             </div>
         </div>
         <div class="hero-img animate">
-            <!-- ВСТАВЬТЕ ВАШУ ФОТОГРАФИЮ ЗДЕСЬ -->
-            <!-- Рекомендуемый размер: 100% ширины контейнера (40% от экрана) и высота 500px -->
-            <!-- <img src="images/your-photo.jpg" alt="Alexandr Lubeshko" style="width: 100%; height: 100%; object-fit: cover;"> -->
-            <img src="assets/alexandr3.png" alt="Alexandr Lubeshko" style="width: 100%; height: 100%; object-fit: cover;">
+            <!-- Ваша фотография с сохранением пропорций -->
+            <img src="assets/alexandr3.png" alt="Alexandr Lubeshko" style="width: 100%; height: 100%; object-fit: contain;">
         </div>
     </section>
 
@@ -757,10 +799,7 @@
             
             <div class="project-content">
                 <div class="project-image">
-                    <!-- ВСТАВЬТЕ ИЗОБРАЖЕНИЕ ПРОЕКТА ЗДЕСЬ -->
-                    <!-- Рекомендуемый размер: 100% ширины контейнера и высота 400px -->
-                    <!-- <img src="images/eco-hotel.jpg" alt="ЭКО-Отель" style="width: 100%; height: 100%; object-fit: cover;"> -->
-                    <img src="assets/Homes.png" alt="Название проекта" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="assets/Homes.png" alt="ЭКО-Отель">
                 </div>
                 
                 <div class="project-info">
@@ -790,10 +829,7 @@
             
             <div class="project-content">
                 <div class="project-image">
-                    <!-- ВСТАВЬТЕ ИЗОБРАЖЕНИЕ ПРОЕКТА ЗДЕСЬ -->
-                    <!-- Рекомендуемый размер: 100% ширины контейнера и высота 400px -->
-                    <!-- <img src="images/moneyhub.jpg" alt="MoneyHub" style="width: 100%; height: 100%; object-fit: cover;"> -->
-                   <img src="assets/MoneyHub.png" alt="Название проекта" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="assets/MoneyHub.png" alt="MoneyHub">
                 </div>
                 
                 <div class="project-info">
@@ -823,10 +859,7 @@
             
             <div class="project-content">
                 <div class="project-image">
-                    <!-- ВСТАВЬТЕ ИЗОБРАЖЕНИЕ ПРОЕКТА ЗДЕСЬ -->
-                    <!-- Рекомендуемый размер: 100% ширины контейнера и высота 400px -->
-                    <!-- <img src="images/travel-agency.jpg" alt="TravelAgency" style="width: 100%; height: 100%; object-fit: cover;"> -->
-                   <img src="assets/travelagency.png" alt="Название проекта" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="assets/travelagency.png" alt="TravelAgency">
                 </div>
                 
                 <div class="project-info">
