@@ -365,13 +365,21 @@
             justify-content: center;
         }
         
+        /* Стили для изображений проектов */
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Гарантирует заполнение контейнера */
+            object-position: center;
+        }
+        
         .project-info h4 {
             font-size: 26px;
             color: var(--text-main);
             margin-bottom: 25px;
         }
         
-        /* ИЗМЕНЕНИЕ: Уменьшен line-height для текста в проектах */
+        /* Уменьшен line-height для текста в проектах */
         .project-info p {
             font-size: 18px;
             color: var(--text-secondary);
@@ -718,9 +726,8 @@
             </div>
         </div>
         <div class="hero-img animate">
-            <!-- ВСТАВЬТЕ ВАШУ ФОТОГРАФИЮ -->
-            <!-- <img src="images/your-photo.jpg" alt="Alexandr Lubeshko" style="width: 100%; height: 100%; object-fit: cover;"> -->
-            <div style="color: var(--text-secondary); font-style: italic;">[Ваша фотография]</div>
+            <!-- Фотография -->
+            <img src="assets/alexandr.png" alt="Alexandr Lubeshko" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
     </section>
 
@@ -737,9 +744,7 @@
             
             <div class="project-content">
                 <div class="project-image">
-                    <!-- ВСТАВЬТЕ ИЗОБРАЖЕНИЕ ПРОЕКТА -->
-                    <!-- <img src="images/eco-hotel.jpg" alt="ЭКО-Отель" style="width: 100%; height: 100%; object-fit: cover;"> -->
-                    <div style="color: var(--text-secondary); font-style: italic;">[Изображение проекта 1]</div>
+                    <img src="assets/Homes.png" alt="ЭКО-Отель">
                 </div>
                 
                 <div class="project-info">
@@ -769,9 +774,7 @@
             
             <div class="project-content">
                 <div class="project-image">
-                    <!-- ВСТАВЬТЕ ИЗОБРАЖЕНИЕ ПРОЕКТА -->
-                    <!-- <img src="images/moneyhub.jpg" alt="MoneyHub" style="width: 100%; height: 100%; object-fit: cover;"> -->
-                    <div style="color: var(--text-secondary); font-style: italic;">[Изображение проекта 2]</div>
+                    <img src="assets/MoneyHub.png" alt="MoneyHub">
                 </div>
                 
                 <div class="project-info">
@@ -801,9 +804,7 @@
             
             <div class="project-content">
                 <div class="project-image">
-                    <!-- ВСТАВЬТЕ ИЗОБРАЖЕНИЕ ПРОЕКТА -->
-                    <!-- <img src="images/travel-agency.jpg" alt="TravelAgency" style="width: 100%; height: 100%; object-fit: cover;"> -->
-                    <div style="color: var(--text-secondary); font-style: italic;">[Изображение проекта 3]</div>
+                    <img src="assets/travel-agency.png" alt="TravelAgency">
                 </div>
                 
                 <div class="project-info">
