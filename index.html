@@ -195,8 +195,8 @@
         .hero-img img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Центрированное отображение */
-            object-position: center;
+            object-fit: cover; /* Возвращаем cover */
+            object-position: top center; /* Акцент на верхнюю часть */
             transition: all 0.3s ease;
         }
         
@@ -321,7 +321,7 @@
         
         /* Секция проектов */
         .projects {
-            padding: 150px 5%;
+            padding: 120px 5%; /* Уменьшенный отступ */
             background-color: #0c0d10;
             position: relative;
         }
@@ -329,7 +329,7 @@
         .section-title {
             font-size: 42px;
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 60px; /* Уменьшенный отступ */
             position: relative;
             opacity: 0;
             transform: translateY(30px);
@@ -357,7 +357,7 @@
             background: #0f1015;
             border-radius: 8px;
             overflow: hidden;
-            margin-bottom: 100px;
+            margin-bottom: 70px; /* Уменьшенный отступ */
             border: 1px solid rgba(255,255,255,0.05);
             opacity: 0;
             transform: scale(0.95);
@@ -371,27 +371,27 @@
         }
         
         .project-header {
-            padding: 30px 40px;
+            padding: 20px 30px; /* Уменьшенный отступ */
             background: rgba(114, 49, 255, 0.1);
             border-bottom: 1px solid rgba(114, 49, 255, 0.2);
         }
         
         .project-header h3 {
-            font-size: 32px;
+            font-size: 28px; /* Уменьшенный размер */
             color: var(--text-main);
-            margin-bottom: 10px;
+            margin-bottom: 8px; /* Уменьшенный отступ */
         }
         
         .project-header p {
-            font-size: 18px;
+            font-size: 16px; /* Уменьшенный размер */
             color: var(--text-secondary);
         }
         
         .project-content {
-            padding: 50px;
+            padding: 30px; /* Уменьшенный отступ */
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 40px; /* Уменьшенный отступ */
             align-items: center;
         }
         
@@ -399,7 +399,7 @@
             border-radius: 8px;
             overflow: hidden;
             background: #14151a;
-            height: 412px;
+            height: 400px; /* Возвращаем высоту */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -433,28 +433,28 @@
         }
         
         .project-info h4 {
-            font-size: 26px;
+            font-size: 22px; /* Уменьшенный размер */
             color: var(--text-main);
-            margin-bottom: 25px;
+            margin-bottom: 20px; /* Уменьшенный отступ */
         }
         
         .project-info p {
-            font-size: 18px;
+            font-size: 16px; /* Уменьшенный размер */
             color: var(--text-secondary);
-            margin-bottom: 20px;
-            line-height: 1.8;
+            margin-bottom: 15px; /* Уменьшенный отступ */
+            line-height: 1.7;
             font-weight: 300;
         }
         
         .project-info ul {
             padding-left: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 20px; /* Уменьшенный отступ */
         }
         
         .project-info li {
-            font-size: 16px;
+            font-size: 15px; /* Уменьшенный размер */
             color: var(--text-secondary);
-            margin-bottom: 10px;
+            margin-bottom: 8px; /* Уменьшенный отступ */
             position: relative;
         }
         
@@ -466,7 +466,7 @@
         
         /* Секция контактов */
         .contact {
-            padding: 150px 5%;
+            padding: 120px 5%; /* Уменьшенный отступ */
             background-color: #07080A;
             position: relative;
         }
@@ -481,15 +481,15 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 40px;
-            margin-top: 50px;
+            gap: 30px; /* Уменьшенный отступ */
+            margin-top: 40px; /* Уменьшенный отступ */
         }
         
         .contact-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-width: 220px;
+            min-width: 200px; /* Уменьшенная ширина */
         }
         
         .contact-item a {
@@ -502,15 +502,15 @@
         }
         
         .contact-icon {
-            width: 90px;
-            height: 90px;
+            width: 80px; /* Уменьшенный размер */
+            height: 80px; /* Уменьшенный размер */
             background: rgba(114, 49, 255, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
-            font-size: 36px;
+            margin-bottom: 15px; /* Уменьшенный отступ */
+            font-size: 30px; /* Уменьшенный размер */
             color: var(--accent);
             transition: all 0.3s ease;
             position: relative;
@@ -542,14 +542,14 @@
         }
         
         .contact-item h4 {
-            font-size: 20px;
-            margin-bottom: 10px;
+            font-size: 18px; /* Уменьшенный размер */
+            margin-bottom: 8px; /* Уменьшенный отступ */
             color: var(--text-main);
         }
         
         .contact-item p {
             color: var(--text-secondary);
-            font-size: 16px;
+            font-size: 14px; /* Уменьшенный размер */
             word-break: break-word;
         }
         
@@ -565,11 +565,10 @@
             
             .project-content {
                 gap: 30px;
-                padding: 40px;
             }
             
             .contact-info {
-                gap: 30px;
+                gap: 25px;
             }
             
             .project-image {
@@ -586,7 +585,7 @@
             
             .hero-content {
                 max-width: 100%;
-                margin-bottom: 50px;
+                margin-bottom: 40px; /* Уменьшенный отступ */
             }
             
             .hero-img {
@@ -623,15 +622,15 @@
             
             .section-title {
                 font-size: 36px;
-                margin-bottom: 60px;
+                margin-bottom: 50px; /* Уменьшенный отступ */
             }
             
             .project-header h3 {
-                font-size: 28px;
+                font-size: 24px;
             }
             
             .project-content {
-                padding: 30px;
+                padding: 20px;
             }
             
             .nav-links {
@@ -647,13 +646,13 @@
             }
             
             .contact-info {
-                gap: 25px;
+                gap: 20px;
             }
             
             .contact-icon {
-                width: 80px;
-                height: 80px;
-                font-size: 30px;
+                width: 70px;
+                height: 70px;
+                font-size: 26px;
             }
             
             .project-image {
@@ -663,13 +662,14 @@
         
         @media (max-width: 576px) {
             .hero-img {
-                display: none;
+                height: 400px; /* Уменьшаем высоту плашки */
+                width: 90%; /* Шире для мобильных */
             }
             
             .hero {
                 padding-top: 80px;
                 min-height: auto;
-                padding-bottom: 50px;
+                padding-bottom: 40px; /* Уменьшенный отступ */
             }
             
             .btn-container {
@@ -678,7 +678,7 @@
             }
             
             .project-header {
-                padding: 20px;
+                padding: 15px 20px;
             }
             
             header {
@@ -699,12 +699,12 @@
             
             .section-title {
                 font-size: 32px;
-                margin-bottom: 60px;
+                margin-bottom: 40px; /* Уменьшенный отступ */
             }
             
             .contact-info {
                 flex-direction: column;
-                gap: 30px;
+                gap: 25px;
             }
             
             .contact-item {
@@ -734,11 +734,11 @@
             }
             
             .project-header h3 {
-                font-size: 24px;
+                font-size: 22px;
             }
             
             .project-info h4 {
-                font-size: 22px;
+                font-size: 20px;
             }
             
             .btn, .btn-outline, .project-btn {
@@ -761,6 +761,10 @@
             .project-image {
                 height: 200px;
             }
+            
+            .hero-img {
+                height: 350px; /* Еще уменьшаем высоту */
+            }
         }
         
         @media (max-width: 380px) {
@@ -774,6 +778,10 @@
             
             .project-image {
                 height: 180px;
+            }
+            
+            .hero-img {
+                height: 300px; /* Минимальная высота */
             }
         }
     </style>
@@ -802,7 +810,7 @@
             </div>
         </div>
         <div class="hero-img animate">
-            <!-- Центрированная фотография -->
+            <!-- Фото с акцентом на верхнюю часть -->
             <img src="assets/alexandr3.png" alt="Alexandr Lubeshko">
         </div>
     </section>
@@ -915,7 +923,7 @@
     <section id="contact" class="contact">
         <div class="contact-container">
             <h2 class="section-title animate">Контакты</h2>
-            <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 50px;">
+            <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 40px; font-size: 18px;">
                 Готов к сотрудничеству и новым проектам. Свяжитесь со мной любым удобным способом:
             </p>
             
