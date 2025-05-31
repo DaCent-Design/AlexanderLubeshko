@@ -28,9 +28,9 @@
             overflow-x: hidden;
         }
         
-        /* Улучшенный скроллбар с эффектом свечения */
+        /* Широкий скроллбар с эффектом свечения */
         ::-webkit-scrollbar {
-            width: 12px;
+            width: 14px; /* Шире */
         }
         
         ::-webkit-scrollbar-track {
@@ -44,11 +44,12 @@
             border: 3px solid #0c0d10;
             background-clip: padding-box;
             transition: all 0.3s ease;
+            box-shadow: inset 0 0 5px rgba(255,255,255,0.2);
         }
         
         ::-webkit-scrollbar-thumb:hover {
             background: #8a5cff;
-            box-shadow: 0 0 10px rgba(114, 49, 255, 0.7);
+            box-shadow: 0 0 15px rgba(114, 49, 255, 0.8);
         }
         
         h1, h2, h3, h4 {
@@ -68,6 +69,7 @@
             z-index: 1000;
             background-color: rgba(7, 8, 10, 0.95);
             transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
         .logo {
@@ -174,7 +176,7 @@
             width: 40%;
             border-radius: 8px;
             background: #1a1c22;
-            height: 450px; /* Уменьшенная высота плашки */
+            height: 500px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -182,11 +184,20 @@
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s ease 0.2s;
+            position: relative;
         }
         
         .hero-img.animate {
             opacity: 1;
             transform: translateY(0);
+        }
+        
+        .hero-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Центрированное отображение */
+            object-position: center;
+            transition: all 0.3s ease;
         }
         
         /* Стили для кнопок */
@@ -274,7 +285,7 @@
             height: 0;
             background: var(--accent);
             border-radius: 50%;
-            transition: all 0.3s ease;
+            transition: all 0.3s ease; /* Ускоренная анимация (0.3s вместо 0.4s) */
             z-index: -1;
         }
         
@@ -351,6 +362,7 @@
             opacity: 0;
             transform: scale(0.95);
             transition: all 0.8s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
         .project-card.visible {
@@ -387,42 +399,37 @@
             border-radius: 8px;
             overflow: hidden;
             background: #14151a;
-            height: 412px; /* Точная высота */
-            width: 725px; /* Точная ширина */
+            height: 412px;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            margin: 0 auto;
+            transition: all 0.3s ease;
         }
         
         /* Яркое свечение при наведении */
+        .project-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(114, 49, 255, 0.6);
+        }
+        
+        .project-image a {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
         .project-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
         }
         
         .project-image:hover img {
-            transform: scale(1.02);
-        }
-        
-        .project-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 8px;
-            box-shadow: 0 0 0 rgba(114, 49, 255, 0);
-            transition: all 0.4s ease;
-            z-index: -1;
-        }
-        
-        .project-image:hover::after {
-            box-shadow: 0 0 30px rgba(114, 49, 255, 0.7);
+            transform: scale(1.03);
         }
         
         .project-info h4 {
@@ -565,11 +572,8 @@
                 gap: 30px;
             }
             
-            /* Адаптация для проектов */
             .project-image {
-                width: 100%;
-                height: auto;
-                max-height: 412px;
+                height: 350px;
             }
         }
         
@@ -587,7 +591,7 @@
             
             .hero-img {
                 width: 70%;
-                height: 400px;
+                height: 500px;
             }
             
             .project-content {
@@ -595,8 +599,7 @@
             }
             
             .project-image {
-                height: auto;
-                max-height: 400px;
+                height: 400px;
                 order: -1;
             }
             
@@ -620,6 +623,7 @@
             
             .section-title {
                 font-size: 36px;
+                margin-bottom: 60px;
             }
             
             .project-header h3 {
@@ -650,6 +654,10 @@
                 width: 80px;
                 height: 80px;
                 font-size: 30px;
+            }
+            
+            .project-image {
+                height: 300px;
             }
         }
         
@@ -702,6 +710,10 @@
             .contact-item {
                 min-width: 100%;
             }
+            
+            .project-image {
+                height: 250px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -745,6 +757,10 @@
             .nav-links a {
                 font-size: 12px;
             }
+            
+            .project-image {
+                height: 200px;
+            }
         }
         
         @media (max-width: 380px) {
@@ -754,6 +770,10 @@
             
             .nav-links a {
                 font-size: 11px;
+            }
+            
+            .project-image {
+                height: 180px;
             }
         }
     </style>
@@ -782,8 +802,8 @@
             </div>
         </div>
         <div class="hero-img animate">
-            <!-- Фото с сохранением пропорций -->
-            <img src="assets/alexandr3.png" alt="Alexandr Lubeshko" style="width: 100%; height: 100%; object-fit: contain;">
+            <!-- Центрированная фотография -->
+            <img src="assets/alexandr3.png" alt="Alexandr Lubeshko">
         </div>
     </section>
 
@@ -800,7 +820,10 @@
             
             <div class="project-content">
                 <div class="project-image">
-                    <img src="assets/Homes.png" alt="ЭКО-Отель">
+                    <!-- Кликабельное изображение проекта -->
+                    <a href="eco-hotel.html">
+                        <img src="assets/Homes.png" alt="ЭКО-Отель">
+                    </a>
                 </div>
                 
                 <div class="project-info">
@@ -830,7 +853,10 @@
             
             <div class="project-content">
                 <div class="project-image">
-                    <img src="assets/MoneyHub.png" alt="MoneyHub">
+                    <!-- Кликабельное изображение проекта -->
+                    <a href="moneyhub.html">
+                        <img src="assets/MoneyHub.png" alt="MoneyHub">
+                    </a>
                 </div>
                 
                 <div class="project-info">
@@ -860,7 +886,10 @@
             
             <div class="project-content">
                 <div class="project-image">
-                    <img src="assets/travelagency.png" alt="TravelAgency">
+                    <!-- Кликабельное изображение проекта -->
+                    <a href="travel-agency.html">
+                        <img src="assets/travelagency.png" alt="TravelAgency">
+                    </a>
                 </div>
                 
                 <div class="project-info">
