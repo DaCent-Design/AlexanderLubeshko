@@ -12,7 +12,6 @@
             --accent: #7231FF;
             --text-main: #FFFFFF;
             --text-secondary: #D0D0D0;
-            --decor-color: #3A3A3A;
         }
         
         * {
@@ -27,6 +26,7 @@
             font-family: 'Raleway', sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
+            font-size: 16px; /* Базовый размер шрифта */
         }
         
         h1, h2, h3, h4 {
@@ -39,21 +39,22 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 25px 5%;
+            padding: 15px 5%;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            background-color: rgba(7, 8, 10, 0.9);
+            background-color: rgba(7, 8, 10, 0.95);
             transition: all 0.3s ease;
         }
         
         .logo {
-            font-size: 24px;
+            font-size: 20px; /* Уменьшенный размер лого */
             font-weight: 600;
             color: var(--text-main);
             text-decoration: none;
             font-family: 'Unbounded', sans-serif;
+            white-space: nowrap;
         }
         
         .logo span {
@@ -62,7 +63,7 @@
         
         .nav-links {
             display: flex;
-            gap: 40px;
+            gap: 20px; /* Уменьшенный отступ */
             list-style: none;
         }
         
@@ -70,9 +71,10 @@
             color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
-            font-size: 18px;
+            font-size: 16px; /* Уменьшенный размер шрифта */
             position: relative;
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
         
         .nav-links a:hover {
@@ -100,7 +102,7 @@
             display: flex;
             align-items: center;
             padding: 0 5%;
-            padding-top: 80px;
+            padding-top: 70px; /* Уменьшенный отступ сверху */
             position: relative;
         }
         
@@ -109,8 +111,8 @@
         }
         
         .hero h1 {
-            font-size: 64px;
-            margin-bottom: 20px;
+            font-size: 48px; /* Уменьшенный размер */
+            margin-bottom: 15px;
             line-height: 1.1;
         }
         
@@ -119,8 +121,8 @@
         }
         
         .hero h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
+            font-size: 24px; /* Уменьшенный размер */
+            margin-bottom: 15px;
             font-weight: 500;
             color: var(--text-main);
         }
@@ -130,19 +132,19 @@
         }
         
         .hero p {
-            font-size: 20px;
+            font-size: 16px; /* Уменьшенный размер */
             color: var(--text-secondary);
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             max-width: 500px;
             font-weight: 300;
-            line-height: 1.8;
+            line-height: 1.6;
         }
         
         .hero-img {
             width: 40%;
             border-radius: 8px;
             background: #1a1c22;
-            height: 500px;
+            height: 400px; /* Уменьшенная высота */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -152,31 +154,48 @@
         /* Стили для кнопок */
         .btn-container {
             display: flex;
-            gap: 20px;
-            margin-top: 30px;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
         }
         
-        .btn {
+        .btn, .btn-outline, .project-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 16px 40px;
-            background-color: var(--accent);
-            color: white;
-            border-radius: 4px;
+            padding: 12px 30px;
+            border-radius: 50px; /* Круглые кнопки */
             text-decoration: none;
             font-family: 'Unbounded', sans-serif;
             font-weight: 500;
-            font-size: 16px;
+            font-size: 14px;
             transition: all 0.5s ease;
-            border: none;
-            cursor: pointer;
             position: relative;
             overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
             z-index: 1;
         }
         
-        .btn::before {
+        .btn {
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+        
+        .project-btn {
+            background-color: var(--accent);
+            color: white;
+            border: 2px solid var(--accent);
+        }
+        
+        /* Анимация для всех кнопок */
+        .btn::before, .btn-outline::before, .project-btn::before {
             content: '';
             position: absolute;
             top: 0;
@@ -184,76 +203,42 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: all 0.6s ease;
-        }
-        
-        .btn:hover::before {
-            left: 100%;
-        }
-        
-        .btn-outline {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 16px 40px;
-            background-color: transparent;
-            color: var(--accent);
-            border: 2px solid var(--accent);
-            border-radius: 4px;
-            text-decoration: none;
-            font-family: 'Unbounded', sans-serif;
-            font-weight: 500;
-            font-size: 16px;
-            transition: all 0.5s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn-outline::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 0;
-            height: 0;
-            background: var(--accent);
-            border-radius: 50%;
-            transition: all 0.6s ease;
+            transition: all 0.8s ease;
             z-index: -1;
         }
         
-        .btn-outline:hover {
-            color: white;
+        .btn:hover::before, .btn-outline:hover::before, .project-btn:hover::before {
+            left: 100%;
         }
         
-        .btn-outline:hover::before {
-            width: 300px;
-            height: 300px;
+        /* Дополнительная анимация для кнопок проектов */
+        .project-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(114, 49, 255, 0.3);
         }
         
         /* Секция проектов */
         .projects {
-            padding: 150px 5%;
+            padding: 100px 5%; /* Уменьшенный отступ */
             background-color: #0c0d10;
             position: relative;
         }
         
         .section-title {
-            font-size: 42px;
+            font-size: 36px; /* Уменьшенный размер */
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 60px; /* Уменьшенный отступ */
             position: relative;
         }
         
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -20px;
+            bottom: -15px; /* Уменьшенный отступ */
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
+            width: 80px; /* Уменьшенная длина */
+            height: 3px; /* Уменьшенная толщина */
             background: var(--accent);
             border-radius: 2px;
         }
@@ -262,40 +247,40 @@
             background: #0f1015;
             border-radius: 8px;
             overflow: hidden;
-            margin-bottom: 100px;
+            margin-bottom: 70px; /* Уменьшенный отступ */
             border: 1px solid rgba(255,255,255,0.05);
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+            transform: scale(0.95);
+            transition: all 0.8s ease;
         }
         
         .project-card.visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: scale(1);
         }
         
         .project-header {
-            padding: 30px 40px;
+            padding: 20px 30px; /* Уменьшенный отступ */
             background: rgba(114, 49, 255, 0.1);
             border-bottom: 1px solid rgba(114, 49, 255, 0.2);
         }
         
         .project-header h3 {
-            font-size: 32px;
+            font-size: 26px; /* Уменьшенный размер */
             color: var(--text-main);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         
         .project-header p {
-            font-size: 18px;
+            font-size: 16px; /* Уменьшенный размер */
             color: var(--text-secondary);
         }
         
         .project-content {
-            padding: 50px;
+            padding: 30px; /* Уменьшенный отступ */
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 30px; /* Уменьшенный отступ */
             align-items: center;
         }
         
@@ -303,35 +288,35 @@
             border-radius: 8px;
             overflow: hidden;
             background: #14151a;
-            height: 400px;
+            height: 300px; /* Уменьшенная высота */
             display: flex;
             align-items: center;
             justify-content: center;
         }
         
         .project-info h4 {
-            font-size: 26px;
+            font-size: 22px; /* Уменьшенный размер */
             color: var(--text-main);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
         
         .project-info p {
-            font-size: 18px;
+            font-size: 16px; /* Уменьшенный размер */
             color: var(--text-secondary);
-            margin-bottom: 20px;
-            line-height: 1.8;
+            margin-bottom: 15px;
+            line-height: 1.6;
             font-weight: 300;
         }
         
         .project-info ul {
             padding-left: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         
         .project-info li {
-            font-size: 16px;
+            font-size: 14px; /* Уменьшенный размер */
             color: var(--text-secondary);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             position: relative;
         }
         
@@ -341,46 +326,9 @@
             margin-right: 10px;
         }
         
-        .project-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px 36px;
-            background-color: transparent;
-            color: var(--accent);
-            border: 2px solid var(--accent);
-            border-radius: 4px;
-            text-decoration: none;
-            font-family: 'Unbounded', sans-serif;
-            font-weight: 500;
-            font-size: 16px;
-            transition: all 0.5s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .project-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: all 0.6s ease;
-        }
-        
-        .project-btn:hover::before {
-            left: 100%;
-        }
-        
-        .project-btn:hover {
-            background-color: rgba(114, 49, 255, 0.1);
-        }
-        
         /* Секция контактов */
         .contact {
-            padding: 150px 5%;
+            padding: 100px 5%; /* Уменьшенный отступ */
             background-color: #07080A;
             position: relative;
         }
@@ -394,27 +342,28 @@
         .contact-info {
             display: flex;
             justify-content: center;
-            gap: 50px;
-            margin-top: 50px;
             flex-wrap: wrap;
+            gap: 20px; /* Уменьшенный отступ */
+            margin-top: 40px; /* Уменьшенный отступ */
         }
         
         .contact-item {
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-width: 150px;
         }
         
         .contact-icon {
-            width: 80px;
-            height: 80px;
+            width: 60px; /* Уменьшенный размер */
+            height: 60px; /* Уменьшенный размер */
             background: rgba(114, 49, 255, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
-            font-size: 32px;
+            margin-bottom: 15px;
+            font-size: 24px; /* Уменьшенный размер */
             color: var(--accent);
             transition: all 0.3s ease;
         }
@@ -422,6 +371,9 @@
         .contact-item a {
             text-decoration: none;
             color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
         .contact-icon:hover {
@@ -430,58 +382,30 @@
         }
         
         .contact-item h4 {
-            font-size: 20px;
-            margin-bottom: 10px;
+            font-size: 18px; /* Уменьшенный размер */
+            margin-bottom: 8px;
             color: var(--text-main);
         }
         
         .contact-item p {
             color: var(--text-secondary);
-            font-size: 18px;
-        }
-        
-        .custom-icon {
-            width: 60px;
-            height: 60px;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-        
-        /* Анимации */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        
-        @keyframes slideUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            font-size: 14px; /* Уменьшенный размер */
+            word-break: break-all;
         }
         
         /* Адаптивность */
         @media (max-width: 1200px) {
             .hero h1 {
-                font-size: 52px;
+                font-size: 42px;
             }
             
             .hero h2 {
-                font-size: 28px;
+                font-size: 22px;
             }
             
             .project-content {
-                gap: 30px;
-                padding: 40px;
+                gap: 20px;
+                padding: 25px;
             }
         }
         
@@ -489,17 +413,17 @@
             .hero {
                 flex-direction: column;
                 text-align: center;
-                padding-top: 120px;
+                padding-top: 80px; /* Уменьшенный отступ */
             }
             
             .hero-content {
                 max-width: 100%;
-                margin-bottom: 50px;
+                margin-bottom: 40px;
             }
             
             .hero-img {
                 width: 70%;
-                height: 400px;
+                height: 350px; /* Уменьшенная высота */
             }
             
             .project-content {
@@ -507,43 +431,8 @@
             }
             
             .project-image {
-                height: 300px;
+                height: 250px; /* Уменьшенная высота */
                 order: -1;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 42px;
-            }
-            
-            .hero h2 {
-                font-size: 24px;
-            }
-            
-            .hero p {
-                font-size: 18px;
-            }
-            
-            .section-title {
-                font-size: 36px;
-            }
-            
-            .project-header h3 {
-                font-size: 28px;
-            }
-            
-            .project-content {
-                padding: 30px;
-            }
-            
-            .contact-info {
-                flex-direction: column;
-                gap: 30px;
-            }
-            
-            .nav-links {
-                gap: 20px;
             }
             
             .btn-container {
@@ -551,18 +440,90 @@
             }
         }
         
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero h2 {
+                font-size: 20px;
+            }
+            
+            .hero p {
+                font-size: 15px;
+            }
+            
+            .section-title {
+                font-size: 30px;
+                margin-bottom: 40px;
+            }
+            
+            .project-header h3 {
+                font-size: 22px;
+            }
+            
+            .project-content {
+                padding: 20px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 25px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .logo {
+                font-size: 18px;
+            }
+            
+            .nav-links a {
+                font-size: 14px;
+            }
+        }
+        
         @media (max-width: 576px) {
             .hero-img {
                 width: 100%;
-                height: 350px;
+                height: 300px;
             }
             
             .btn-container {
                 flex-direction: column;
+                align-items: center;
             }
             
             .project-header {
-                padding: 20px;
+                padding: 15px 20px;
+            }
+            
+            .contact-item {
+                min-width: 100%;
+            }
+            
+            header {
+                padding: 10px 5%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .section-title {
+                font-size: 26px;
+            }
+            
+            .nav-links {
+                gap: 10px;
+            }
+            
+            .logo {
+                font-size: 16px;
             }
         }
     </style>
@@ -591,7 +552,8 @@
             </div>
         </div>
         <div class="hero-img">
-            <!-- Замените на вашу фотографию -->
+            <!-- ВСТАВЬТЕ ВАШУ ФОТОГРАФИЮ -->
+            <!-- <img src="images/your-photo.jpg" alt="Alexandr Lubeshko" style="width: 100%; height: 100%; object-fit: cover;"> -->
             <div style="color: var(--text-secondary); font-style: italic;">[Ваша фотография]</div>
         </div>
     </section>
@@ -609,7 +571,8 @@
             
             <div class="project-content">
                 <div class="project-image">
-                    <!-- Замените на изображение проекта -->
+                    <!-- ВСТАВЬТЕ ИЗОБРАЖЕНИЕ ПРОЕКТА -->
+                    <!-- <img src="images/eco-hotel.jpg" alt="ЭКО-Отель" style="width: 100%; height: 100%; object-fit: cover;"> -->
                     <div style="color: var(--text-secondary); font-style: italic;">[Изображение проекта 1]</div>
                 </div>
                 
@@ -626,7 +589,7 @@
                         <li>Система управления контентом для владельца</li>
                     </ul>
                     
-                    <a href="#" class="project-btn">Подробнее о проекте</a>
+                    <a href="eco-hotel.html" class="project-btn">Подробнее о проекте</a>
                 </div>
             </div>
         </div>
@@ -640,7 +603,8 @@
             
             <div class="project-content">
                 <div class="project-image">
-                    <!-- Замените на изображение проекта -->
+                    <!-- ВСТАВЬТЕ ИЗОБРАЖЕНИЕ ПРОЕКТА -->
+                    <!-- <img src="images/moneyhub.jpg" alt="MoneyHub" style="width: 100%; height: 100%; object-fit: cover;"> -->
                     <div style="color: var(--text-secondary); font-style: italic;">[Изображение проекта 2]</div>
                 </div>
                 
@@ -657,7 +621,7 @@
                         <li>Повышенная безопасность и шифрование</li>
                     </ul>
                     
-                    <a href="#" class="project-btn">Подробнее о проекте</a>
+                    <a href="moneyhub.html" class="project-btn">Подробнее о проекте</a>
                 </div>
             </div>
         </div>
@@ -671,7 +635,8 @@
             
             <div class="project-content">
                 <div class="project-image">
-                    <!-- Замените на изображение проекта -->
+                    <!-- ВСТАВЬТЕ ИЗОБРАЖЕНИЕ ПРОЕКТА -->
+                    <!-- <img src="images/travel-agency.jpg" alt="TravelAgency" style="width: 100%; height: 100%; object-fit: cover;"> -->
                     <div style="color: var(--text-secondary); font-style: italic;">[Изображение проекта 3]</div>
                 </div>
                 
@@ -688,7 +653,7 @@
                         <li>Мобильное приложение для iOS и Android</li>
                     </ul>
                     
-                    <a href="#" class="project-btn">Подробнее о проекте</a>
+                    <a href="travel-agency.html" class="project-btn">Подробнее о проекте</a>
                 </div>
             </div>
         </div>
@@ -698,46 +663,48 @@
     <section id="contact" class="contact">
         <div class="contact-container">
             <h2 class="section-title">Контакты</h2>
-            <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 50px;">
+            <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 30px;">
                 Готов к сотрудничеству и новым проектам. Свяжитесь со мной любым удобным способом:
             </p>
             
             <div class="contact-info">
                 <div class="contact-item">
-                    <a href="mailto:alex@lubeshko.design">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h4>Email</h4>
-                        <p>alex@lubeshko.design</p>
-                    </a>
-                </div>
-                
-                <div class="contact-item">
-                    <a href="https://t.me/alex_lubeshko" target="_blank">
+                    <a href="https://t.me/DaCent_Design" target="_blank">
                         <div class="contact-icon">
                             <i class="fab fa-telegram"></i>
                         </div>
                         <h4>Telegram</h4>
-                        <p>@alex_lubeshko</p>
+                        <p>@DaCent_Design</p>
                     </a>
                 </div>
                 
                 <div class="contact-item">
-                    <a href="https://www.behance.net/alubeshko" target="_blank">
+                    <a href="mailto:Alexandr.Design@gmail.com">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email</h4>
+                        <p>Alexandr.Design@gmail.com</p>
+                    </a>
+                </div>
+                
+                <div class="contact-item">
+                    <a href="https://kwork.ru/user/dacent_design" target="_blank">
+                        <div class="contact-icon">
+                            <i class="fas fa-briefcase"></i> <!-- Временная иконка для Kwork -->
+                        </div>
+                        <h4>Kwork</h4>
+                        <p>kwork.ru/user/dacent_design</p>
+                    </a>
+                </div>
+                
+                <div class="contact-item">
+                    <a href="https://www.behance.net/e2069d50" target="_blank">
                         <div class="contact-icon">
                             <i class="fab fa-behance"></i>
                         </div>
                         <h4>Behance</h4>
-                        <p>behance.net/alubeshko</p>
-                    </a>
-                </div>
-                
-                <div class="contact-item">
-                    <a href="https://kwork.ru/user/alubeshko" target="_blank">
-                        <div class="contact-icon custom-icon" style="background-image: url('images/kwork-icon.png');"></div>
-                        <h4>Kwork</h4>
-                        <p>kwork.ru/alubeshko</p>
+                        <p>behance.net/e2069d50</p>
                     </a>
                 </div>
             </div>
@@ -753,7 +720,7 @@
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     window.scrollTo({
-                        top: target.offsetTop - 80,
+                        top: target.offsetTop - 70,
                         behavior: 'smooth'
                     });
                 }
@@ -778,12 +745,12 @@
         // Фиксация шапки при скролле
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
-            if (window.scrollY > 50) {
+            if (window.scrollY > 30) {
                 header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
-                header.style.background = 'rgba(7, 8, 10, 0.95)';
+                header.style.background = 'rgba(7, 8, 10, 0.98)';
             } else {
                 header.style.boxShadow = 'none';
-                header.style.background = 'rgba(7, 8, 10, 0.9)';
+                header.style.background = 'rgba(7, 8, 10, 0.95)';
             }
         });
         
