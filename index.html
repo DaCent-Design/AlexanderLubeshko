@@ -196,7 +196,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center top; /* Фокус на верхней части */
+            object-position: center top;
             transition: all 0.3s ease;
         }
         
@@ -399,11 +399,14 @@
             border-radius: 8px;
             overflow: hidden;
             background: #14151a;
-            height: 400px;
+            height: 402px; /* Точная высота */
+            width: 725px; /* Точная ширина */
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
+            transition: all 0.3s ease;
+            margin: 0 auto;
         }
         
         /* Яркое свечение при наведении */
@@ -572,7 +575,9 @@
             }
             
             .project-image {
-                height: 350px;
+                width: 100%;
+                height: auto;
+                max-height: 402px;
             }
         }
         
@@ -598,7 +603,8 @@
             }
             
             .project-image {
-                height: 400px;
+                height: auto;
+                max-height: 400px;
                 order: -1;
             }
             
@@ -656,7 +662,7 @@
             }
             
             .project-image {
-                height: 300px;
+                max-height: 350px;
             }
         }
         
@@ -711,7 +717,7 @@
             }
             
             .project-image {
-                height: 250px;
+                max-height: 300px;
             }
         }
         
@@ -758,7 +764,7 @@
             }
             
             .project-image {
-                height: 200px;
+                max-height: 250px;
             }
         }
         
@@ -772,7 +778,7 @@
             }
             
             .project-image {
-                height: 180px;
+                max-height: 200px;
             }
         }
     </style>
